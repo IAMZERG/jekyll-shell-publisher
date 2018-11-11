@@ -10,18 +10,24 @@ day=`date +%Y-%m-%d`
 
 # this should be cleaned up, but... later
 
-title=${title//[^a-zA-Z\d\s]/-}
+dasherizedtitle=${title//[^a-zA-Z\d\s]/-}
 
 
-filename="$day"\-"$title".md
+filename="$day"\-"$dasherizedtitle".md
 
 #echo "$dasherizedtitle-$date.md"
 echo "$filename"
 
-#cat > date <<EOF
-#
-#info code info 
-#info code info
-#info code info
-#
-#EOF 
+timestamp=`date`
+
+cat > $filename <<EOF
+---
+title: $title
+author: $author
+date: $timestamp
+---
+
+EOF
+
+vim + $filename
+
