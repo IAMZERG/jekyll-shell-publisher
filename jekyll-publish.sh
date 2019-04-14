@@ -25,6 +25,7 @@ cat > $filename <<EOF
 title: $title
 author: $author
 date: $timestamp
+comments: true
 ---
 
 EOF
